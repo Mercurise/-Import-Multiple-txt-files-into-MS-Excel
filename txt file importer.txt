@@ -43,7 +43,6 @@ For Each myFile In Fso.getfolder(txtFolder.Self.Path).Files
             c = c + NumOfColumn
         End If
         temp_idx = temp_idx + 1
-        'del after use: mySheet.Cells(r, c + 1).Value = Fso.OpenTextFile(myFile).ReadAll '写入文本
         Set sourceFile = Fso.OpenTextFile(myFile)
         While Not sourceFile.AtEndOfStream ' while we are not finished reading through the file
             Line = sourceFile.ReadLine
