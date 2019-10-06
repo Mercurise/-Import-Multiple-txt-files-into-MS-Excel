@@ -9,6 +9,11 @@ This repository provides a VB script for importing multiple txt files into Micro
 * You prefer a batch processing way instead of a tedious manual way.
 
 ## How to Use it?
-* 
-
-Import multiple txt files into Excel worksheet with simple codes and easy to adapt
+* Open the VB console 
+    - (```ALT``` ```+``` ```F11```)
+    - Right click the sheet and left click ```view code```
+* Copy and paste the provided codes into the window
+* Modify the code to fit your own cases:
+    - File Directory Path
+    - Data Sparator
+    - Please check the code comments for more details
