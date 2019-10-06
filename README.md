@@ -6,6 +6,9 @@ This repository provides a VB script for importing multiple txt files into Micro
 * You have mulitple data as txt format
 * You need to import these txt files into an individual worksheet
 * Your txt file uses consistant separator such as ","
+* You prefer a batch processing way instead of a tedious manual way.
 
-##
+## How to Use it?
+* 
+
 Import multiple txt files into Excel worksheet with simple codes and easy to adapt
