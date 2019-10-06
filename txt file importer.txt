@@ -1,0 +1,71 @@
+
+
+Sub txtMergerByColumnsYZ()
+
+Dim t As Date
+Dim r As Long
+
+Dim Fso As Object
+Dim myFile As Object
+Dim mySheet As Worksheet
+Dim txtFolder As Object
+'---------
+Dim WrdArray() As String
+'---------
+t = Timer
+
+'----
+c = 0
+NumOfColumn = 2 'configure in your own case
+Delimited = "," 'configure in your own case
+'----
+Set txtFolder = CreateObject("Shell.Application").BrowseForFolder(0, "please select the folder of your txt files", 0, ThisWorkbook.Path)
+
+If txtFolder Is Nothing Then Exit Sub 'exit if none are selected
+Set Fso = CreateObject("Scripting.FileSystemObject") '
+Set mySheet = ThisWorkbook.Sheets("sheet1") 'set worksheet, if error, modify the number to your current worksheet
+
+
+Application.ScreenUpdating = False
+
+'__________initialize the worksheet______________________________
+mySheet.Cells.Clear
+temp_idx = 0 'formatting the table, not relevant to business
+'____________________________________________________
+
+For Each myFile In Fso.getfolder(txtFolder.Self.Path).Files
+    If Fso.GetExtensionName(myFile) = "txt" Then 'check the extension type
+        'read files and load into the same row
+        r = 1
+        If temp_idx = 0 Then
+            c = 0
+        Else
+            c = c + NumOfColumn
+        End If
+        temp_idx = temp_idx + 1
+        'del after use: mySheet.Cells(r, c + 1).Value = Fso.OpenTextFile(myFile).ReadAll '写入文本
+        Set sourceFile = Fso.OpenTextFile(myFile)
+        While Not sourceFile.AtEndOfStream ' while we are not finished reading through the file
+            Line = sourceFile.ReadLine
+            WrdArray() = Split(Line, Delimited)
+            i = 1
+            For Each Ele In WrdArray()
+                mySheet.Cells(r, c + i).Value = Ele
+                i = i + 1
+            Next Ele
+            'mySheet.Cells(r, c + 1).Value = Line
+            r = r + 1
+        Wend
+        
+    End If
+Next myFile
+
+Application.ScreenUpdating = True
+
+Set mySheet = Nothing
+Set Fso = Nothing
+Set txtFolder = Nothing
+
+MsgBox "finished in " & Format((Timer - t), "0.0") & "seconds"
+
+End Sub
