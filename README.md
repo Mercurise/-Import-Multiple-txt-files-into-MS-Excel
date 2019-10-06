@@ -1,4 +1,4 @@
-# Import multiple txt data files into MS Excel with Visual Basic Codes
+# Import multiple txt data files into MS Excel with simple Visual Basic Codes
 
 This repository provides a VB script for importing multiple txt files into Microsoft Excel without conducting the operation mannually. Comments are provided to extend the functionality to your own cases. Tested on MS Excel 2013. Codes are provided in a "non-CS users friendly" fashion.
 
@@ -18,4 +18,4 @@ This repository provides a VB script for importing multiple txt files into Micro
     - Number of Columns
     - Please check the code comments for more details or midifications
 
-* Save the VBA codes: please refer to this [Quora forum](http://github.com) and [this site](https://www.quora.com/How-can-I-save-VBA-code-in-excel).
+* Save the VBA codes into Excel: please refer to this [Quora forum](http://github.com) and [this site](https://www.quora.com/How-can-I-save-VBA-code-in-excel).
